@@ -51,14 +51,8 @@ function index()
 			end)
 		
 		if has_wifi then
-			page = entry({"admin", "network", "wireless_join"}, call("wifi_join"), nil)
-			page.leaf = true
 
-			page = entry({"admin", "network", "wireless_add"}, call("wifi_add"), nil)
-			page.leaf = true
 
-			page = entry({"admin", "network", "wireless_delete"}, call("wifi_delete"), nil)
-			page.leaf = true
 
 			page = entry({"admin", "network", "wireless_status"}, call("wifi_status"), nil)
 			page.leaf = true
@@ -90,11 +84,6 @@ function index()
 		end
 
 
-		page = entry({"admin", "network", "iface_add"}, cbi("admin_network/iface_add"), nil)
-		page.leaf = true
-
-		page = entry({"admin", "network", "iface_delete"}, call("iface_delete"), nil)
-		page.leaf = true
 
 		page = entry({"admin", "network", "iface_status"}, call("iface_status"), nil)
 		page.leaf = true
@@ -121,20 +110,6 @@ function index()
 		end
 
 
-		if nixio.fs.access("/etc/config/dhcp") then
-			page = node("admin", "network", "dhcp")
-			page.target = cbi("admin_network/dhcp")
-			page.title  = _("DHCP and DNS")
-			page.order  = 30
-
-			page = entry({"admin", "network", "dhcplease_status"}, call("lease_status"), nil)
-			page.leaf = true
-
-			page = node("admin", "network", "hosts")
-			page.target = cbi("admin_network/hosts")
-			page.title  = _("Hostnames")
-			page.order  = 40
-		end
 
 		page  = node("admin", "network", "routes")
 		page.target = cbi("admin_network/routes")
