@@ -1,0 +1,6 @@
+#!/bin/sh
+uci batch <<-EOF
+	set luci.themes.Cambium=/luci-static/cambium
+        commit luci
+EOF
+	
