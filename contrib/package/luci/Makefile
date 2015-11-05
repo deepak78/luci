@@ -502,6 +502,7 @@ define theme
 endef
 
 $(eval $(call theme,base,Common base for all themes))
+$(eval $(call theme,cambium,Cambium themes))
 $(eval $(call theme,openwrt,OpenWrt.org (default),,,1))
 $(eval $(call theme,fledermaus,Fledermaus Theme))
 
