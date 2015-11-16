@@ -393,3 +393,28 @@ a:hover, a:focus {
 .breadcrumb .active a {
 	color: #404040;
 }
+
+
+@media screen and (max-width: 1600px) {
+    #logo {
+        width: calc(0% + 15rem);
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    #logo {
+        width: calc(0% + 13rem);
+    }
+    
+    #logo img {
+        height: 3.5rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    
+}
+
+@media screen and (max-width: 480px) {
+    
+}
