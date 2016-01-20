@@ -233,7 +233,7 @@ end
 
 ------------------- Madwifi Device ------------------
 
-if hwtype == "atheros" then
+if hwtype == "atheros" or hwtype == "mt7620" then
 	tp = s:taboption("general",
 		(#tx_power_list > 0) and ListValue or Value,
 		"txpower", translate("Transmit Power"), "dBm")
@@ -476,7 +476,7 @@ end
 
 -------------------- Madwifi Interface ----------------------
 
-if hwtype == "atheros" then
+if hwtype == "atheros" or hwtype == "mt7620" then
 	mode:value("ahdemo", translate("Pseudo Ad-Hoc (ahdemo)"))
 	mode:value("monitor", translate("Monitor"))
 	mode:value("ap-wds", "%s (%s)" % {translate("Access Point"), translate("WDS")})
@@ -685,7 +685,7 @@ encr:value("none", "No Encryption")
 encr:value("wep-open",   translate("WEP Open System"), {mode="ap"}, {mode="sta"}, {mode="ap-wds"}, {mode="sta-wds"}, {mode="adhoc"}, {mode="ahdemo"}, {mode="wds"})
 encr:value("wep-shared", translate("WEP Shared Key"),  {mode="ap"}, {mode="sta"}, {mode="ap-wds"}, {mode="sta-wds"}, {mode="adhoc"}, {mode="ahdemo"}, {mode="wds"})
 
-if hwtype == "atheros" or hwtype == "mac80211" or hwtype == "prism2" then
+if hwtype == "atheros" or hwtype == "mt7620" or hwtype == "mac80211" or hwtype == "prism2" then
 	local supplicant = fs.access("/usr/sbin/wpa_supplicant")
 	local hostapd = fs.access("/usr/sbin/hostapd")
 
@@ -846,7 +846,7 @@ for slot=1,4 do
 end
 
 
-if hwtype == "atheros" or hwtype == "mac80211" or hwtype == "prism2" then
+if hwtype == "atheros" or hwtype == "mt7620" or hwtype == "mac80211" or hwtype == "prism2" then
 	nasid = s:taboption("encryption", Value, "nasid", translate("NAS ID"))
 	nasid:depends({mode="ap", encryption="wpa"})
 	nasid:depends({mode="ap", encryption="wpa2"})
