@@ -183,7 +183,7 @@ function sysinfo()
 		cpuinfo:match("model name\t+: ([^\n]+)")
 
 	local model =
-		luci.util.pcdata(fs.readfile("/tmp/sysinfo/model")) or
+		luci.util.pcdata(fs.readfile("/etc/ap_model")) or
 		cpuinfo:match("machine\t+: ([^\n]+)") or
 		cpuinfo:match("Hardware\t+: ([^\n]+)") or
 		luci.util.pcdata(fs.readfile("/proc/diag/model")) or
